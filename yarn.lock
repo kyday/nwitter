@@ -5522,7 +5522,7 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
-firebase@^9.0.0:
+firebase@^9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-9.0.1.tgz#6bc5f9d7bdcd864ef98f2219fa0cd240f2e48b3c"
   integrity sha512-RMpbXsVlxqMX+s/gYudnUZeSZXPiLCJMdaxbZ0WRiMjLuJc6ZkbpRy7yz7rZQpL0wRD6gN4K5C+JaKEQtN3jAQ==
