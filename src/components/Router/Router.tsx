@@ -2,13 +2,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Auth from "../../routes/Auth/Auth";
 import Home from "../../routes/Home/Home";
 
-type User = {
-  email: string | null;
-  emailVerified: boolean;
-};
-
 type LoginProps = {
-  isLoggedIn: User | null;
+  isLoggedIn: boolean;
 };
 
 function AppRouter(props: LoginProps) {

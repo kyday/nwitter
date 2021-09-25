@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { ReactComponent as Icon } from "../../images/icon.svg";
 
 function Auth() {
   const [form, setForm] = useState({
@@ -20,19 +21,18 @@ function Auth() {
   };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    let data;
     e.preventDefault();
 
     try {
       if (newCount) {
-        data = await createUserWithEmailAndPassword(
+        await createUserWithEmailAndPassword(
           authService,
           form.email,
           form.password
         );
         alert("회원가입이 완료되었습니다 !");
       } else {
-        data = await signInWithEmailAndPassword(
+        await signInWithEmailAndPassword(
           authService,
           form.email,
           form.password
@@ -47,6 +47,11 @@ function Auth() {
 
   return (
     <div>
+      <img
+        alt='mainBackground'
+        src='https://abs.twimg.com/sticky/illustrations/lohp_1302x955.png'
+      />
+      <Icon height='fit-content' />
       <form onSubmit={(e) => onSubmit(e)}>
         <input
           name='email'
