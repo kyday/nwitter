@@ -15,6 +15,8 @@ function Auth() {
 
   const [newCount, setNewCount] = useState(true);
 
+  const [error, setError] = useState("");
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -29,8 +31,9 @@ function Auth() {
           authService,
           form.email,
           form.password
-        );
-        alert("회원가입이 완료되었습니다 !");
+        )
+          .then(() => alert("회원가입이 완료되었습니다 !"))
+          .catch((e) => console.log(e));
       } else {
         await signInWithEmailAndPassword(
           authService,
@@ -38,8 +41,9 @@ function Auth() {
           form.password
         );
       }
-    } catch (error) {
-      alert("error");
+    } catch (e) {
+      console.log(e);
+      // setError(error);
     }
 
     setForm({ email: "", password: "" });
@@ -70,6 +74,7 @@ function Auth() {
         />
 
         <input type='submit' value={newCount ? "Create Account" : "Sign In"} />
+        {error}
       </form>
     </div>
   );
