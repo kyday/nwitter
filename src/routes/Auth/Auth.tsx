@@ -31,9 +31,7 @@ function Auth() {
           authService,
           form.email,
           form.password
-        )
-          .then(() => alert("회원가입이 완료되었습니다 !"))
-          .catch((e) => console.log(e));
+        ).then(() => alert("회원가입이 완료되었습니다 !"));
       } else {
         await signInWithEmailAndPassword(
           authService,
@@ -42,11 +40,15 @@ function Auth() {
         );
       }
     } catch (e) {
-      console.log(e);
+      setError(e.message);
       // setError(error);
     }
 
     setForm({ email: "", password: "" });
+  };
+
+  const toggleAccount = () => {
+    setNewCount((prev) => !prev);
   };
 
   return (
@@ -76,6 +78,9 @@ function Auth() {
         <input type='submit' value={newCount ? "Create Account" : "Sign In"} />
         {error}
       </form>
+      <span onClick={toggleAccount}>
+        {newCount ? "Sign In" : "Create Account"}
+      </span>
     </div>
   );
 }
